@@ -1,3 +1,4 @@
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -1558,37 +1559,38 @@
     <div class="grid-3">
         <div class="info-box">
             <h4>Electronic (EDI)</h4>
-            <p><strong>Recommended Method</strong></p>
+            <p><strong>✅ Recommended Method</strong></p>
             <ul>
                 <li>✅ Fastest (submit today, adjudicate in 14 days)</li>
                 <li>✅ Automatic error checking</li>
                 <li>✅ Tracking and status updates</li>
                 <li>✅ Required for most suppliers</li>
             </ul>
-            <p>Use clearinghouse or billing software</p>
+            <p><strong>Use:</strong> Clearinghouse or billing software</p>
         </div>
         
-        <div>
+        <div class="warning-box">
             <h4>Paper (CMS-1500)</h4>
-            <p><strong>Slow, Error-Prone</strong></p>
+            <p><strong>⚠️ Slow, Error-Prone</strong></p>
             <ul>
                 <li>⚠️ 30+ day processing</li>
                 <li>⚠️ Higher rejection rate</li>
                 <li>⚠️ No tracking</li>
                 <li>⚠️ Handwriting issues</li>
             </ul>
-            <p>Only use if electronic unavailable</p>
+            <p><strong>Use:</strong> Only if electronic unavailable</p>
         </div>
         
-        <div>
+        <div class="info-box">
             <h4>Portal Submission</h4>
-            <p><strong>MAC-Specific</strong></p>
+            <p><strong>📱 MAC-Specific</strong></p>
             <ul>
-                <li>Some MACs allow direct portal entry</li>
-                <li>Good for single claims</li>
-                <li>Immediate validation</li>
-                <li>Not scalable for volume</li>
+                <li>✓ Some MACs allow direct portal entry</li>
+                <li>✓ Good for single claims</li>
+                <li>✓ Immediate validation</li>
+                <li>✓ Not scalable for volume</li>
             </ul>
+            <p><strong>Use:</strong> Individual claims or testing</p>
         </div>
     </div>
 </div>
