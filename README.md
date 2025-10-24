@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>BOC Codes: Your Business License Categories Explained</title>
+    <title>The Complete Coding System: BOC + HCPCS + ICD-10</title>
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -20,71 +20,95 @@
             border-radius: 8px;
             box-shadow: 0 2px 4px rgba(0,0,0,0.1);
         }
-        .foundation {
-            border-left: 5px solid #2196F3;
-        }
-        .structure {
-            border-left: 5px solid #9C27B0;
-        }
-        .priority {
-            border-left: 5px solid #4CAF50;
-        }
-        .categories {
-            border-left: 5px solid #FF9800;
-        }
-        .strategy {
-            border-left: 5px solid #F44336;
-        }
-        .action {
-            border-left: 5px solid #00BCD4;
-        }
         h1 {
             color: #333;
             border-bottom: 3px solid #2196F3;
             padding-bottom: 10px;
+            text-align: center;
         }
         h2 {
             color: #444;
             margin-top: 0;
         }
-        .key-term {
-            background-color: #FFF9C4;
-            padding: 2px 6px;
-            border-radius: 3px;
-            font-weight: bold;
+        .master-diagram {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 30px;
+            border-radius: 12px;
+            margin: 30px 0;
         }
-        .russian {
-            color: #666;
-            font-style: italic;
+        .three-column {
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr;
+            gap: 20px;
+            margin: 20px 0;
         }
-        .diagram-box {
-            background-color: #E3F2FD;
+        .column-box {
+            background-color: white;
             padding: 20px;
             border-radius: 8px;
-            margin: 15px 0;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+        }
+        .column-box h3 {
+            margin-top: 0;
+            padding-bottom: 10px;
+            border-bottom: 2px solid;
+        }
+        .boc-box {
+            border-left: 5px solid #2196F3;
+        }
+        .boc-box h3 {
+            color: #1976D2;
+            border-color: #2196F3;
+        }
+        .hcpcs-box {
+            border-left: 5px solid #FF9800;
+        }
+        .hcpcs-box h3 {
+            color: #F57C00;
+            border-color: #FF9800;
+        }
+        .icd-box {
+            border-left: 5px solid #9C27B0;
+        }
+        .icd-box h3 {
+            color: #7B1FA2;
+            border-color: #9C27B0;
+        }
+        .example-box {
+            background-color: #F5F5F5;
+            padding: 20px;
+            border-radius: 8px;
+            margin: 20px 0;
             border: 2px solid #2196F3;
         }
-        .critical-box {
-            background-color: #FCE4EC;
+        .example-box h4 {
+            margin-top: 0;
+            color: #1976D2;
+        }
+        .flow-diagram {
+            background-color: #FAFAFA;
+            padding: 30px;
+            border-radius: 8px;
+            margin: 20px 0;
+        }
+        .flow-step {
+            background-color: white;
             padding: 20px;
             border-radius: 8px;
-            border: 3px solid #F44336;
-            margin: 20px 0;
-            font-size: 17px;
-        }
-        .tip-box {
-            background-color: #E8F5E9;
-            padding: 15px;
-            border-radius: 5px;
-            border-left: 4px solid #4CAF50;
             margin: 15px 0;
+            border-left: 5px solid #4CAF50;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
         }
-        .warning-box {
-            background-color: #FFEBEE;
-            padding: 15px;
-            border-radius: 5px;
-            border-left: 4px solid #F44336;
-            margin: 15px 0;
+        .flow-step h4 {
+            margin: 0 0 10px 0;
+            color: #2E7D32;
+        }
+        .arrow-down {
+            text-align: center;
+            font-size: 36px;
+            color: #4CAF50;
+            margin: 10px 0;
         }
         table {
             width: 100%;
@@ -104,85 +128,45 @@
         tr:nth-child(even) {
             background-color: #f9f9f9;
         }
-        .high-priority {
-            background-color: #C8E6C9 !important;
+        .code-tag {
+            display: inline-block;
+            padding: 4px 8px;
+            border-radius: 4px;
+            font-family: monospace;
             font-weight: bold;
+            margin: 2px;
         }
-        .medium-priority {
-            background-color: #FFF9C4 !important;
-        }
-        .low-priority {
-            background-color: #f9f9f9 !important;
-        }
-        .category-card {
-            background-color: #FAFAFA;
-            border: 2px solid #2196F3;
-            border-radius: 8px;
-            padding: 15px;
-            margin: 10px 0;
-        }
-        .category-card h4 {
-            margin: 0 0 10px 0;
+        .boc-tag {
+            background-color: #BBDEFB;
             color: #1976D2;
         }
-        .hcpcs-list {
-            background-color: #E3F2FD;
-            padding: 10px;
-            border-radius: 5px;
-            margin: 10px 0;
-            font-family: 'Courier New', monospace;
-            font-size: 14px;
+        .hcpcs-tag {
+            background-color: #FFE0B2;
+            color: #F57C00;
         }
-        .visual-flow {
-            display: flex;
-            align-items: center;
-            justify-content: space-around;
-            flex-wrap: wrap;
+        .icd-tag {
+            background-color: #E1BEE7;
+            color: #7B1FA2;
+        }
+        .critical-box {
+            background-color: #FCE4EC;
+            padding: 20px;
+            border-radius: 8px;
+            border: 3px solid #F44336;
             margin: 20px 0;
-            padding: 20px;
-            background-color: #FAFAFA;
-            border-radius: 8px;
         }
-        .flow-item {
-            background-color: #E3F2FD;
+        .success-box {
+            background-color: #E8F5E9;
             padding: 20px;
             border-radius: 8px;
-            border: 2px solid #2196F3;
-            min-width: 200px;
-            text-align: center;
-            margin: 10px;
+            border: 3px solid #4CAF50;
+            margin: 20px 0;
         }
-        .arrow {
-            font-size: 36px;
-            color: #FF9800;
-        }
-        .profit-indicator {
-            display: inline-block;
-            padding: 3px 8px;
-            border-radius: 3px;
-            font-weight: bold;
-            font-size: 12px;
-        }
-        .high-profit {
-            background-color: #4CAF50;
-            color: white;
-        }
-        .medium-profit {
-            background-color: #FF9800;
-            color: white;
-        }
-        .low-profit {
-            background-color: #9E9E9E;
-            color: white;
-        }
-        .license-badge {
-            display: inline-block;
-            background-color: #2196F3;
-            color: white;
-            padding: 5px 10px;
+        .checklist {
+            background-color: #FFF9C4;
+            padding: 15px;
             border-radius: 5px;
-            font-weight: bold;
-            margin: 5px;
+            margin: 15px 0;
         }
         ul {
             margin: 10px 0;
@@ -194,746 +178,527 @@
 </head>
 <body>
 
-<h1>BOC Codes: Your DME Business License Categories</h1>
+<h1>The Complete DME Coding System<br>BOC + HCPCS + ICD-10</h1>
 
-<div class="section foundation">
-    <h2>🔵 FOUNDATION: What Are BOC Codes?</h2>
+<div class="master-diagram">
+    <h2 style="color: white; text-align: center; margin-top: 0;">The Three-Code System You Must Master</h2>
     
-    <p><span class="key-term">BOC</span> = <strong>Business Operation Code</strong></p>
-    <p class="russian">(Russian: Код бизнес-операций / Kod biznes-operatsiy)</p>
-    
-    <h3>Simple Definition:</h3>
-    <p>BOC codes are <strong>licensing categories</strong> that define what types of DME products you are legally authorized to sell through Medicare.</p>
-    
-    <div class="critical-box">
-        <strong>CRITICAL UNDERSTANDING:</strong><br><br>
-        You asked if BOC codes are "groupings of HCPCS codes" — <strong>YES, EXACTLY CORRECT!</strong><br><br>
-        
-        Each BOC category contains a GROUP of related HCPCS codes.<br>
-        You can ONLY sell products with HCPCS codes that fall within your licensed BOC categories.
-    </div>
-
-    <h3>The Relationship:</h3>
-    <div class="visual-flow">
-        <div class="flow-item" style="background-color: #E1F5FE;">
-            <h4 style="margin: 0; color: #01579B;">BOC Code</h4>
-            <p style="margin: 5px 0;">License Category</p>
-            <p style="font-size: 14px; color: #666;">Example: DM05</p>
+    <div class="three-column">
+        <div class="column-box">
+            <h3 style="color: #2196F3;">1️⃣ BOC Code</h3>
+            <p><strong>Business Operation Code</strong></p>
+            <p style="color: #666;">License Category</p>
+            <hr style="border-color: rgba(255,255,255,0.3);">
+            <p><strong>Purpose:</strong> Defines what you're AUTHORIZED to sell</p>
+            <p><strong>Who Controls:</strong> Medicare/CMS accreditation</p>
+            <p><strong>You Have:</strong> 36 categories</p>
+            <p><strong>Example:</strong> <span class="code-tag boc-tag">DM05</span></p>
         </div>
         
-        <div class="arrow">→</div>
-        
-        <div class="flow-item" style="background-color: #F3E5F5;">
-            <h4 style="margin: 0; color: #4A148C;">Contains Multiple HCPCS Codes</h4>
-            <p style="margin: 5px 0;">Specific Products</p>
-            <p style="font-size: 12px; font-family: monospace;">E0607, A4253, A4256, A4258, A4259</p>
+        <div class="column-box">
+            <h3 style="color: #FF9800;">2️⃣ HCPCS Code</h3>
+            <p><strong>Healthcare Common Procedure Coding System</strong></p>
+            <p style="color: #666;">Product Identifier</p>
+            <hr style="border-color: rgba(255,255,255,0.3);">
+            <p><strong>Purpose:</strong> Identifies WHAT product you sold</p>
+            <p><strong>Who Controls:</strong> CMS (updates annually)</p>
+            <p><strong>Format:</strong> 1 letter + 4 numbers</p>
+            <p><strong>Example:</strong> <span class="code-tag hcpcs-tag">A4253</span></p>
         </div>
         
-        <div class="arrow">→</div>
-        
-        <div class="flow-item" style="background-color: #C8E6C9;">
-            <h4 style="margin: 0; color: #1B5E20;">You Can Sell</h4>
-            <p style="margin: 5px 0;">Actual Products</p>
-            <p style="font-size: 14px;">Glucose meters, test strips, lancets</p>
+        <div class="column-box">
+            <h3 style="color: #9C27B0;">3️⃣ ICD-10 Code</h3>
+            <p><strong>International Classification of Diseases</strong></p>
+            <p style="color: #666;">Medical Diagnosis</p>
+            <hr style="border-color: rgba(255,255,255,0.3);">
+            <p><strong>Purpose:</strong> Proves WHY patient needs it</p>
+            <p><strong>Who Controls:</strong> Doctor provides this</p>
+            <p><strong>Format:</strong> 3-7 characters with decimal</p>
+            <p><strong>Example:</strong> <span class="code-tag icd-tag">E11.9</span></p>
         </div>
     </div>
 
-    <h3>Why BOC Codes Exist:</h3>
-    <ul>
-        <li><strong>Licensing control:</strong> Medicare ensures suppliers are qualified for specific product types</li>
-        <li><strong>Quality assurance:</strong> Different products require different expertise</li>
-        <li><strong>Organization:</strong> Groups thousands of HCPCS codes into manageable categories</li>
-        <li><strong>Accreditation:</strong> You must be accredited for each BOC category you want to operate in</li>
-    </ul>
-</div>
-
-<div class="section structure">
-    <h2>🟣 YOUR LICENSE: 36 BOC Categories</h2>
-    
-    <div class="tip-box">
-        <strong>Good News:</strong> You are licensed for 36 different BOC categories! This is a BROAD license that allows you to sell many types of DME products.
-    </div>
-
-    <h3>Your Licensed Categories Breakdown:</h3>
-    
-    <table>
-        <tr>
-            <th>Category Type</th>
-            <th>Your BOC Codes</th>
-            <th>Number of Categories</th>
-        </tr>
-        <tr class="high-priority">
-            <td><strong>Durable Medical Equipment (DM)</strong></td>
-            <td>DM02, DM05, DM06, DM08, DM11, DM12, DM13, DM14, DM15, DM16, DM17, DM18, DM20, DM21, DM22, DM24, DM25, DM28, DM29</td>
-            <td><strong>19 categories</strong></td>
-        </tr>
-        <tr class="medium-priority">
-            <td><strong>Mobility Equipment (M)</strong></td>
-            <td>M01, M05, M06, M06A, M07, M07A, M10</td>
-            <td><strong>7 categories</strong></td>
-        </tr>
-        <tr>
-            <td><strong>Orthotics (OR)</strong></td>
-            <td>OR03, OR04</td>
-            <td><strong>2 categories</strong></td>
-        </tr>
-        <tr>
-            <td><strong>Prosthetics/Devices (PD)</strong></td>
-            <td>PD04, PD08, PD09</td>
-            <td><strong>3 categories</strong></td>
-        </tr>
-        <tr>
-            <td><strong>Enteral/Parenteral (PE)</strong></td>
-            <td>PE03, PE04</td>
-            <td><strong>2 categories</strong></td>
-        </tr>
-        <tr>
-            <td><strong>Respiratory (R)</strong></td>
-            <td>R07</td>
-            <td><strong>1 category</strong></td>
-        </tr>
-        <tr>
-            <td><strong>Surgical Supplies (S)</strong></td>
-            <td>S01, S04</td>
-            <td><strong>2 categories</strong></td>
-        </tr>
-    </table>
-
-    <div class="warning-box">
-        <strong>CRITICAL RULE:</strong><br>
-        You can ONLY sell products whose HCPCS codes fall within these 36 BOC categories.<br>
-        Selling products outside your licensed BOC categories = <strong>illegal operation</strong> = Medicare penalties.
+    <div style="background-color: rgba(255,255,255,0.2); padding: 20px; border-radius: 8px; margin-top: 20px;">
+        <h3 style="color: white; text-align: center;">How They Work Together:</h3>
+        <p style="text-align: center; font-size: 18px; color: white;">
+            <span class="code-tag boc-tag">BOC</span> determines if you CAN sell it +
+            <span class="code-tag hcpcs-tag">HCPCS</span> tells insurance WHAT you sold +
+            <span class="code-tag icd-tag">ICD-10</span> proves patient NEEDS it
+            = <strong>💰 INSURANCE PAYS YOU</strong>
+        </p>
     </div>
 </div>
 
-<div class="section priority">
-    <h2>🟢 PRIORITY CATEGORIES: Where to Start for Maximum Profit</h2>
+<div class="section">
+    <h2>📊 The Complete System: How All Three Codes Connect</h2>
     
-    <h3>🎯 TOP TIER (Start Here - High Volume, High Profit, Easy to Stock)</h3>
-    
-    <div class="category-card" style="border-color: #4CAF50; background-color: #E8F5E9;">
-        <h4>1. DM05/DM06 - Blood Glucose Monitors & Supplies <span class="profit-indicator high-profit">HIGH PROFIT</span></h4>
-        
-        <p><strong>Why Start Here:</strong></p>
-        <ul>
-            <li>✓ <strong>Recurring revenue:</strong> Patients need test strips every month</li>
-            <li>✓ <strong>Low initial investment:</strong> Small, affordable inventory</li>
-            <li>✓ <strong>Huge market:</strong> 37+ million Americans have diabetes</li>
-            <li>✓ <strong>High reimbursement:</strong> Medicare pays well for diabetic supplies</li>
-            <li>✓ <strong>Easy storage:</strong> Small products, no special requirements</li>
-        </ul>
-        
-        <div class="hcpcs-list">
-            <strong>Key HCPCS Codes in This BOC:</strong><br>
-            • E0607 — Blood glucose monitor<br>
-            • A4253 — Test strips (50 count) ⭐ <em>Monthly recurring</em><br>
-            • A4259 — Lancets (100 count) ⭐ <em>Monthly recurring</em><br>
-            • A4256 — Control solution
+    <div class="flow-diagram">
+        <div class="flow-step">
+            <h4>STEP 1: Check Your BOC License</h4>
+            <p><strong>Question:</strong> Am I authorized to sell this product type?</p>
+            <p><strong>Action:</strong> Look at your 36 licensed BOC categories</p>
+            <p><strong>Example:</strong> Patient needs glucose test strips → Check if you have <span class="code-tag boc-tag">DM05</span> (Blood Glucose) → ✓ Yes, you have it</p>
         </div>
         
-        <p><strong>Products to Stock First:</strong></p>
-        <ul>
-            <li>Generic glucose meters (3-5 models)</li>
-            <li>Universal test strips (compatible with major brands)</li>
-            <li>Lancets (bulk packs)</li>
-            <li>Lancing devices</li>
-        </ul>
+        <div class="arrow-down">↓</div>
         
-        <p><strong>Estimated Initial Investment:</strong> $2,000-$5,000<br>
-        <strong>Estimated Monthly Profit:</strong> $1,500-$4,000 per 50 patients</p>
-    </div>
-
-    <div class="category-card" style="border-color: #4CAF50; background-color: #E8F5E9;">
-        <h4>2. M01 - Canes <span class="profit-indicator high-profit">HIGH PROFIT</span></h4>
-        
-        <p><strong>Why Start Here:</strong></p>
-        <ul>
-            <li>✓ <strong>Low cost:</strong> Canes are inexpensive to buy wholesale</li>
-            <li>✓ <strong>High markup:</strong> 100-200% profit margin</li>
-            <li>✓ <strong>Fast turnover:</strong> Common need, quick sales</li>
-            <li>✓ <strong>No maintenance:</strong> Sell and done</li>
-            <li>✓ <strong>Easy to stock:</strong> Small storage space needed</li>
-        </ul>
-        
-        <div class="hcpcs-list">
-            <strong>Key HCPCS Codes:</strong><br>
-            • E0100 — Standard cane<br>
-            • E0105 — Quad cane (four legs)<br>
-            • A4636 — Replacement tip
+        <div class="flow-step">
+            <h4>STEP 2: Find the HCPCS Code</h4>
+            <p><strong>Question:</strong> What is the exact product code?</p>
+            <p><strong>Action:</strong> Find HCPCS code within that BOC category</p>
+            <p><strong>Example:</strong> Test strips, 50 count → <span class="code-tag hcpcs-tag">A4253</span></p>
         </div>
         
-        <p><strong>Products to Stock:</strong></p>
-        <ul>
-            <li>Adjustable aluminum canes (10-20 units)</li>
-            <li>Quad canes (5-10 units)</li>
-            <li>Offset handle canes (5-10 units)</li>
-            <li>Replacement tips (bulk)</li>
-        </ul>
+        <div class="arrow-down">↓</div>
         
-        <p><strong>Initial Investment:</strong> $500-$1,000<br>
-        <strong>Profit per cane:</strong> $15-$40</p>
-    </div>
-
-    <div class="category-card" style="border-color: #4CAF50; background-color: #E8F5E9;">
-        <h4>3. M05 - Walkers <span class="profit-indicator high-profit">HIGH PROFIT</span></h4>
-        
-        <p><strong>Why Start Here:</strong></p>
-        <ul>
-            <li>✓ <strong>High demand:</strong> Very common for elderly patients</li>
-            <li>✓ <strong>Good margins:</strong> 50-100% markup</li>
-            <li>✓ <strong>Quick sales:</strong> Often needed immediately after hospital discharge</li>
-            <li>✓ <strong>Accessory sales:</strong> Add-ons increase profit (seats, baskets, wheels)</li>
-        </ul>
-        
-        <div class="hcpcs-list">
-            <strong>Key HCPCS Codes:</strong><br>
-            • E0130 — Walker, rigid, adjustable<br>
-            • E0135 — Walker, folding, adjustable<br>
-            • E0141 — Walker, rigid, wheeled, adjustable<br>
-            • E0143 — Walker, folding, wheeled, adjustable ⭐ <em>Most popular</em><br>
-            • E0147 — Walker, heavy duty, wheeled, with seat
+        <div class="flow-step">
+            <h4>STEP 3: Get Doctor's ICD-10 Code</h4>
+            <p><strong>Question:</strong> Why does the patient need this?</p>
+            <p><strong>Action:</strong> Doctor provides diagnosis code on prescription</p>
+            <p><strong>Example:</strong> Type 2 Diabetes → <span class="code-tag icd-tag">E11.9</span></p>
         </div>
         
-        <p><strong>Products to Stock:</strong></p>
-        <ul>
-            <li>Standard folding walkers without wheels (3-5 units)</li>
-            <li>Walkers with front wheels (5-10 units) ⭐ <em>Best seller</em></li>
-            <li>Rollator walkers with seat (3-5 units)</li>
-            <li>Bariatric/heavy-duty walkers (2-3 units)</li>
-        </ul>
+        <div class="arrow-down">↓</div>
         
-        <p><strong>Initial Investment:</strong> $1,500-$3,000<br>
-        <strong>Profit per walker:</strong> $30-$80</p>
-    </div>
-
-    <div class="category-card" style="border-color: #4CAF50; background-color: #E8F5E9;">
-        <h4>4. DM02 - Commodes <span class="profit-indicator high-profit">HIGH PROFIT</span></h4>
-        
-        <p><strong>Why Start Here:</strong></p>
-        <ul>
-            <li>✓ <strong>Consistent demand:</strong> Post-surgery, elderly, mobility issues</li>
-            <li>✓ <strong>Good profit margin:</strong> 60-120% markup</li>
-            <li>✓ <strong>Quick turnover:</strong> People need them urgently</li>
-            <li>✓ <strong>Recurring accessories:</strong> Replacement buckets, liners</li>
-        </ul>
-        
-        <div class="hcpcs-list">
-            <strong>Key HCPCS Codes:</strong><br>
-            • E0163 — Commode, mobile or stationary, fixed arms<br>
-            • E0165 — Commode, detachable arms ⭐ <em>Most versatile</em><br>
-            • E0168 — Commode, extra wide/heavy duty<br>
-            • E0167 — Replacement bucket
+        <div class="flow-step">
+            <h4>STEP 4: Verify Codes Match Logically</h4>
+            <p><strong>Question:</strong> Does the diagnosis make sense with the product?</p>
+            <p><strong>Action:</strong> Confirm medical logic</p>
+            <p><strong>Example:</strong> Diabetes (<span class="code-tag icd-tag">E11.9</span>) needs glucose test strips (<span class="code-tag hcpcs-tag">A4253</span>) → ✓ Makes sense</p>
         </div>
         
-        <p><strong>Products to Stock:</strong></p>
-        <ul>
-            <li>Standard commodes with detachable arms (5-8 units)</li>
-            <li>Bariatric commodes (2-3 units)</li>
-            <li>Replacement buckets (10-20 units)</li>
-            <li>Commode liners (bulk boxes)</li>
-        </ul>
+        <div class="arrow-down">↓</div>
         
-        <p><strong>Initial Investment:</strong> $1,000-$2,000<br>
-        <strong>Profit per commode:</strong> $40-$80</p>
-    </div>
-
-    <h3>💰 SECOND TIER (Add After Establishing First 4 Categories)</h3>
-    
-    <table>
-        <tr>
-            <th>BOC Code</th>
-            <th>Category</th>
-            <th>Priority Level</th>
-            <th>Why Important</th>
-        </tr>
-        <tr class="medium-priority">
-            <td><strong>M06</strong></td>
-            <td>Standard Wheelchairs</td>
-            <td><span class="profit-indicator medium-profit">MEDIUM</span></td>
-            <td>High value sales but requires more capital</td>
-        </tr>
-        <tr class="medium-priority">
-            <td><strong>DM24/DM25</strong></td>
-            <td>Hospital Beds</td>
-            <td><span class="profit-indicator medium-profit">MEDIUM</span></td>
-            <td>High profit but rental model requires management</td>
-        </tr>
-        <tr class="medium-priority">
-            <td><strong>S01</strong></td>
-            <td>Compression Stockings</td>
-            <td><span class="profit-indicator medium-profit">MEDIUM</span></td>
-            <td>Good margins, recurring sales, but sizing complexity</td>
-        </tr>
-        <tr class="medium-priority">
-            <td><strong>OR04</strong></td>
-            <td>Prefab Orthotics</td>
-            <td><span class="profit-indicator medium-profit">MEDIUM</span></td>
-            <td>Good profits but requires fitting knowledge</td>
-        </tr>
-        <tr class="medium-priority">
-            <td><strong>DM08</strong></td>
-            <td>Heat & Cold Therapy</td>
-            <td><span class="profit-indicator medium-profit">MEDIUM</span></td>
-            <td>Simple products, decent margins</td>
-        </tr>
-    </table>
-
-    <h3>⚠️ ADVANCED TIER (Requires Experience & Capital)</h3>
-    
-    <table>
-        <tr>
-            <th>BOC Code</th>
-            <th>Category</th>
-            <th>Why Wait</th>
-        </tr>
-        <tr class="low-priority">
-            <td>DM13</td>
-            <td>Insulin Pumps</td>
-            <td>Very expensive, complex billing, specialized training needed</td>
-        </tr>
-        <tr class="low-priority">
-            <td>DM17</td>
-            <td>Negative Pressure Wound Therapy</td>
-            <td>Expensive equipment, complex medical necessity requirements</td>
-        </tr>
-        <tr class="low-priority">
-            <td>PE03/PE04</td>
-            <td>Enteral Nutrition</td>
-            <td>Requires special storage, training, and management</td>
-        </tr>
-        <tr class="low-priority">
-            <td>M06A/M07</td>
-            <td>Power Wheelchairs</td>
-            <td>Very expensive, complex prior authorization, high risk</td>
-        </tr>
-        <tr class="low-priority">
-            <td>OR03</td>
-            <td>Custom Fabricated Orthotics</td>
-            <td>Requires certified orthotist on staff</td>
-        </tr>
-    </table>
-</div>
-
-<div class="section categories">
-    <h2>🟠 YOUR 36 BOC CATEGORIES: Complete Reference</h2>
-    
-    <h3>Quick Reference Chart</h3>
-    
-    <table>
-        <tr>
-            <th>BOC Code</th>
-            <th>Category Name</th>
-            <th>Example Products</th>
-            <th>Start Priority</th>
-        </tr>
-        <tr class="high-priority">
-            <td><strong>DM02</strong></td>
-            <td>Commodes/Urinals/Bedpans</td>
-            <td>Bedside commodes, buckets, bedpans</td>
-            <td>⭐⭐⭐ HIGH</td>
-        </tr>
-        <tr class="high-priority">
-            <td><strong>DM05/06</strong></td>
-            <td>Blood Glucose Monitors</td>
-            <td>Glucose meters, test strips, lancets</td>
-            <td>⭐⭐⭐ HIGH</td>
-        </tr>
-        <tr class="medium-priority">
-            <td><strong>DM08</strong></td>
-            <td>Heat & Cold Applications</td>
-            <td>Heating pads, ice packs, cold therapy</td>
-            <td>⭐⭐ MEDIUM</td>
-        </tr>
-        <tr class="low-priority">
-            <td><strong>DM11</strong></td>
-            <td>Continuous Passive Motion</td>
-            <td>CPM machines for joints</td>
-            <td>⭐ LOW</td>
-        </tr>
-        <tr class="low-priority">
-            <td><strong>DM12</strong></td>
-            <td>External Infusion Pumps</td>
-            <td>Ambulatory infusion devices</td>
-            <td>⭐ LOW</td>
-        </tr>
-        <tr class="low-priority">
-            <td><strong>DM13</strong></td>
-            <td>Insulin Pumps</td>
-            <td>External insulin pumps</td>
-            <td>⭐ LOW</td>
-        </tr>
-        <tr class="low-priority">
-            <td><strong>DM14</strong></td>
-            <td>Implanted Infusion Pumps</td>
-            <td>Implantable pump supplies</td>
-            <td>⭐ LOW</td>
-        </tr>
-        <tr class="medium-priority">
-            <td><strong>DM15</strong></td>
-            <td>Lymphedema Pumps</td>
-            <td>Compression pumps, sleeves</td>
-            <td>⭐⭐ MEDIUM</td>
-        </tr>
-        <tr class="medium-priority">
-            <td><strong>DM16</strong></td>
-            <td>Miscellaneous DME</td>
-            <td>Various DME not elsewhere classified</td>
-            <td>⭐⭐ MEDIUM</td>
-        </tr>
-        <tr class="low-priority">
-            <td><strong>DM17</strong></td>
-            <td>Negative Pressure Wound</td>
-            <td>Wound VAC systems</td>
-            <td>⭐ LOW</td>
-        </tr>
-        <tr class="low-priority">
-            <td><strong>DM18</strong></td>
-            <td>Osteogenesis Stimulators</td>
-            <td>Bone growth stimulators</td>
-            <td>⭐ LOW</td>
-        </tr>
-        <tr class="medium-priority">
-            <td><strong>DM20</strong></td>
-            <td>Transcutaneous Electrical Nerve Stimulation (TENS)</td>
-            <td>TENS units, electrodes</td>
-            <td>⭐⭐ MEDIUM</td>
-        </tr>
-        <tr class="medium-priority">
-            <td><strong>DM21</strong></td>
-            <td>Traction Equipment</td>
-            <td>Cervical/lumbar traction devices</td>
-            <td>⭐⭐ MEDIUM</td>
-        </tr>
-        <tr class="low-priority">
-            <td><strong>DM22</strong></td>
-            <td>Patient Lifts</td>
-            <td>Ceiling lifts, floor lifts, slings</td>
-            <td>⭐ LOW</td>
-        </tr>
-        <tr class="medium-priority">
-            <td><strong>DM24</strong></td>
-            <td>Hospital Beds - Manual</td>
-            <td>Manual hospital beds, accessories</td>
-            <td>⭐⭐ MEDIUM</td>
-        </tr>
-        <tr class="medium-priority">
-            <td><strong>DM25</strong></td>
-            <td>Hospital Beds - Electric</td>
-            <td>Electric hospital beds, mattresses</td>
-            <td>⭐⭐ MEDIUM</td>
-        </tr>
-        <tr class="medium-priority">
-            <td><strong>DM28</strong></td>
-            <td>Seat Lift Mechanisms</td>
-            <td>Chair lift mechanisms</td>
-            <td>⭐⭐ MEDIUM</td>
-        </tr>
-        <tr class="medium-priority">
-            <td><strong>DM29</strong></td>
-            <td>Wheelchair Cushions</td>
-            <td>Pressure relief cushions</td>
-            <td>⭐⭐ MEDIUM</td>
-        </tr>
-        <tr class="high-priority">
-            <td><strong>M01</strong></td>
-            <td>Canes</td>
-            <td>Standard canes, quad canes</td>
-            <td>⭐⭐⭐ HIGH</td>
-        </tr>
-        <tr class="high-priority">
-            <td><strong>M05</strong></td>
-            <td>Walkers</td>
-            <td>Standard walkers, rollators</td>
-            <td>⭐⭐⭐ HIGH</td>
-        </tr>
-        <tr class="medium-priority">
-            <td><strong>M06</strong></td>
-            <td>Standard Wheelchairs</td>
-            <td>Manual wheelchairs, standard</td>
-            <td>⭐⭐ MEDIUM</td>
-        </tr>
-        <tr class="low-priority">
-            <td><strong>M06A</strong></td>
-            <td>Power Wheelchairs</td>
-            <td>Electric wheelchairs, scooters</td>
-            <td>⭐ LOW</td>
-        </tr>
-        <tr class="medium-priority">
-            <td><strong>M07</strong></td>
-            <td>Wheelchairs - Pediatric</td>
-            <td>Children's wheelchairs</td>
-            <td>⭐⭐ MEDIUM</td>
-        </tr>
-        <tr class="medium-priority">
-            <td><strong>M07A</strong></td>
-            <td>Wheelchairs - Special Size</td>
-            <td>Bariatric wheelchairs</td>
-            <td>⭐⭐ MEDIUM</td>
-        </tr>
-        <tr class="medium-priority">
-            <td><strong>M10</strong></td>
-            <td>Walker Accessories</td>
-            <td>Walker seats, wheels, platforms</td>
-            <td>⭐⭐ MEDIUM</td>
-        </tr>
-        <tr class="low-priority">
-            <td><strong>OR03</strong></td>
-            <td>Orthotics - Custom Fabricated</td>
-            <td>Custom-made braces</td>
-            <td>⭐ LOW</td>
-        </tr>
-        <tr class="medium-priority">
-            <td><strong>OR04</strong></td>
-            <td>Orthotics - Custom Fitted</td>
-            <td>Prefab braces, splints</td>
-            <td>⭐⭐ MEDIUM</td>
-        </tr>
-        <tr class="low-priority">
-            <td><strong>PD04</strong></td>
-            <td>Cranial Remolding Orthosis</td>
-            <td>Infant helmets</td>
-            <td>⭐ LOW</td>
-        </tr>
-        <tr class="medium-priority">
-            <td><strong>PD08</strong></td>
-            <td>Lymphedema Garments</td>
-            <td>Compression sleeves, gloves</td>
-            <td>⭐⭐ MEDIUM</td>
-        </tr>
-        <tr class="low-priority">
-            <td><strong>PD09</strong></td>
-            <td>Ocular Prosthetics</td>
-            <td>Prosthetic eyes</td>
-            <td>⭐ LOW</td>
-        </tr>
-        <tr class="low-priority">
-            <td><strong>PE03</strong></td>
-            <td>Enteral Nutrients</td>
-            <td>Tube feeding formulas</td>
-            <td>⭐ LOW</td>
-        </tr>
-        <tr class="low-priority">
-            <td><strong>PE04</strong></td>
-            <td>Enteral Equipment</td>
-            <td>Feeding tubes, pumps</td>
-            <td>⭐ LOW</td>
-        </tr>
-        <tr class="medium-priority">
-            <td><strong>R07</strong></td>
-            <td>Suction Pumps</td>
-            <td>Respiratory suction devices</td>
-            <td>⭐⭐ MEDIUM</td>
-        </tr>
-        <tr class="medium-priority">
-            <td><strong>S01</strong></td>
-            <td>Compression Stockings</td>
-            <td>Medical compression hosiery</td>
-            <td>⭐⭐ MEDIUM</td>
-        </tr>
-        <tr class="medium-priority">
-            <td><strong>S04</strong></td>
-            <td>Therapeutic Shoes</td>
-            <td>Diabetic shoes, inserts</td>
-            <td>⭐⭐ MEDIUM</td>
-        </tr>
-    </table>
-</div>
-
-<div class="section strategy">
-    <h2>🔴 BUSINESS STRATEGY: How to Use Your BOC License</h2>
-    
-    <h3>Phase 1: Launch (Months 1-3)</h3>
-    <div class="diagram-box">
-        <h4>Focus on "The Fast Four"</h4>
-        <ol>
-            <li><strong>DM05/06</strong> - Blood glucose supplies ($2,000-$5,000 investment)</li>
-            <li><strong>M01</strong> - Canes ($500-$1,000 investment)</li>
-            <li><strong>M05</strong> - Walkers ($1,500-$3,000 investment)</li>
-            <li><strong>DM02</strong> - Commodes ($1,000-$2,000 investment)</li>
-        </ol>
-        <p><strong>Total Initial Investment:</strong> $5,000-$11,000<br>
-        <strong>Expected Monthly Revenue (after 3 months):</strong> $8,000-$15,000</p>
-    </div>
-
-    <h3>Phase 2: Expansion (Months 4-6)</h3>
-    <div class="diagram-box">
-        <h4>Add High-Volume Categories</h4>
-        <ol start="5">
-            <li><strong>M06</strong> - Standard wheelchairs</li>
-            <li><strong>S01</strong> - Compression stockings</li>
-            <li><strong>DM08</strong> - Heat/cold therapy</li>
-            <li><strong>M10</strong> - Walker accessories</li>
-            <li><strong>DM29</strong> - Wheelchair cushions</li>
-        </ol>
-        <p><strong>Additional Investment:</strong> $5,000-$10,000<br>
-        <strong>Expected Monthly Revenue:</strong> $15,000-$25,000</p>
-    </div>
-
-    <h3>Phase 3: Growth (Months 7-12)</h3>
-    <div class="diagram-box">
-        <h4>Add Specialized/Higher-Margin Categories</h4>
-        <ul>
-            <li><strong>DM24/25</strong> - Hospital beds (rental income)</li>
-            <li><strong>OR04</strong> - Prefab orthotics</li>
-            <li><strong>S04</strong> - Diabetic shoes</li>
-            <li><strong>DM20</strong> - TENS units</li>
-            <li><strong>PD08</strong> - Lymphedema garments</li>
-        </ul>
-        <p><strong>Additional Investment:</strong> $10,000-$20,000<br>
-        <strong>Expected Monthly Revenue:</strong> $25,000-$40,000</p>
-    </div>
-
-    <div class="warning-box">
-        <strong>Categories to AVOID Until You Have Experience:</strong>
-        <ul>
-            <li>DM13 - Insulin pumps (very complex)</li>
-            <li>DM17 - Wound VAC (expensive, complex billing)</li>
-            <li>M06A - Power wheelchairs (high cost, difficult prior auth)</li>
-            <li>PE03/04 - Enteral nutrition (special storage/handling)</li>
-            <li>OR03 - Custom fabricated orthotics (requires certified staff)</li>
-            <li>PD09 - Ocular prosthetics (highly specialized)</li>
-        </ul>
+        <div class="flow-step" style="border-left-color: #4CAF50; background-color: #E8F5E9;">
+            <h4>STEP 5: Submit Claim to Insurance</h4>
+            <p><strong>What You Submit:</strong></p>
+            <ul>
+                <li>✓ BOC category: <span class="code-tag boc-tag">DM05</span> (proves you're licensed)</li>
+                <li>✓ HCPCS code: <span class="code-tag hcpcs-tag">A4253</span> (identifies product)</li>
+                <li>✓ ICD-10 code: <span class="code-tag icd-tag">E11.9</span> (medical necessity)</li>
+                <li>✓ Doctor's prescription with signature</li>
+            </ul>
+            <p><strong>Result:</strong> <span style="background-color: #4CAF50; color: white; padding: 5px 10px; border-radius: 5px; font-weight: bold;">INSURANCE PAYS YOU ✓</span></p>
+        </div>
     </div>
 </div>
 
-<div class="section action">
-    <h2>🔵 ACTION PLAN: Next Steps</h2>
+<div class="section">
+    <h2>💡 REAL-WORLD EXAMPLES: Complete Code Sets</h2>
     
-    <h3>Week 1: Research & Planning</h3>
-    <ol>
-        <li><strong>Create product list</strong> for "Fast Four" categories (DM05/06, M01, M05, DM02)</li>
-        <li><strong>Research wholesalers</strong> who sell these products</li>
-        <li><strong>Check Medicare reimbursement rates</strong> for key HCPCS codes in these categories</li>
-        <li><strong>Calculate profit margins</strong> (Wholesale cost vs. Medicare payment)</li>
-    </ol>
-
-    <h3>Week 2: Supplier Setup</h3>
-    <ol>
-        <li><strong>Contact 3-5 DME wholesalers</strong> and request pricing</li>
-        <li><strong>Compare wholesale prices</strong> across suppliers</li>
-        <li><strong>Set up accounts</strong> with 2-3 best suppliers</li>
-        <li><strong>Order initial inventory</strong> for Fast Four categories</li>
-    </ol>
-
-    <h3>Week 3-4: Infrastructure</h3>
-    <ol>
-        <li><strong>Set up storage/warehouse space</strong></li>
-        <li><strong>Create inventory tracking system</strong> (spreadsheet or software)</li>
-        <li><strong>Organize products by BOC category</strong></li>
-        <li><strong>Create pricing reference sheets</strong> (wholesale cost + Medicare reimbursement)</li>
-        <li><strong>Build relationships with doctors</strong> for referrals</li>
-    </ol>
-
-    <h3>Month 2: Operations</h3>
-    <ol>
-        <li><strong>Process first orders</strong> from patients/facilities</li>
-        <li><strong>Submit Medicare claims</strong> with correct HCPCS codes</li>
-        <li><strong>Track which products sell fastest</strong></li>
-        <li><strong>Reorder inventory</strong> as needed</li>
-        <li><strong>Document all sales</strong> by BOC category</li>
-    </ol>
-
-    <div class="tip-box">
-        <h4>Inventory Management by BOC Category</h4>
-        <p>Create separate tracking for each BOC category:</p>
-        <ul>
-            <li>BOC Code | Product Name | HCPCS Code | Units in Stock | Reorder Point | Wholesale Cost | Medicare Pays | Your Profit</li>
-        </ul>
-        <p>This helps you understand which BOC categories are most profitable for your business.</p>
-    </div>
-</div>
-
-<div class="section foundation" style="background-color: #E8F5E9; border-left-color: #4CAF50;">
-    <h2>✅ KEY TAKEAWAYS: BOC Codes Summary</h2>
-    
-    <div style="background-color: white; padding: 20px; border-radius: 8px; border: 3px solid #4CAF50;">
-        <h3 style="margin-top: 0; color: #2E7D32;">The Complete Picture:</h3>
+    <div class="example-box">
+        <h4>Example 1: Diabetic Patient Needs Test Strips</h4>
         
         <table>
             <tr>
-                <th style="background-color: #4CAF50;">What BOC Codes Are</th>
-                <th style="background-color: #2196F3;">How They Work</th>
-                <th style="background-color: #FF9800;">What You Must Do</th>
+                <th>Code Type</th>
+                <th>Code</th>
+                <th>What It Means</th>
+                <th>Who Decides</th>
             </tr>
-            <tr>
-                <td>
-                    • Licensing categories<br>
-                    • Groups of related HCPCS codes<br>
-                    • Define what you can sell<br>
-                    • Required for Medicare billing
-                </td>
-                <td>
-                    • Each BOC = Multiple HCPCS codes<br>
-                    • You pick which BOCs to get licensed for<br>
-                    • More BOCs = More product types<br>
-                    • You have 36 BOC categories
-                </td>
-                <td>
-                    • Only sell products within your 36 BOCs<br>
-                    • Start with highest-profit BOCs<br>
-                    • Track sales by BOC category<br>
-                    • Verify HCPCS codes match your BOCs
-                </td>
+            <tr style="background-color: #E3F2FD;">
+                <td><strong>BOC Code</strong></td>
+                <td><span class="code-tag boc-tag">DM05</span></td>
+                <td>Blood Glucose Monitors & Supplies (Non-Mail)</td>
+                <td>Your License</td>
+            </tr>
+            <tr style="background-color: #FFE0B2;">
+                <td><strong>HCPCS Code</strong></td>
+                <td><span class="code-tag hcpcs-tag">A4253</span></td>
+                <td>Blood glucose test strips, per 50 strips</td>
+                <td>You Select</td>
+            </tr>
+            <tr style="background-color: #F3E5F5;">
+                <td><strong>ICD-10 Code</strong></td>
+                <td><span class="code-tag icd-tag">E11.9</span></td>
+                <td>Type 2 diabetes mellitus without complications</td>
+                <td>Doctor Provides</td>
             </tr>
         </table>
-
-        <div style="margin-top: 20px; padding: 15px; background-color: #FFF9C4; border-radius: 5px;">
-            <strong style="font-size: 18px;">Your Competitive Advantage:</strong><br>
-            <p style="font-size: 16px; margin-top: 10px;">
-            With 36 licensed BOC categories, you have permission to sell a WIDE RANGE of DME products. Most small suppliers only have 10-15 categories. This gives you flexibility to find the most profitable product mix for your market.
-            </p>
+        
+        <div class="success-box">
+            <strong>✓ COMPLETE SET - Ready to Bill:</strong><br>
+            You have license (<span class="code-tag boc-tag">DM05</span>) → Product code (<span class="code-tag hcpcs-tag">A4253</span>) → Medical reason (<span class="code-tag icd-tag">E11.9</span>) → All three codes work together logically → Claim APPROVED
         </div>
     </div>
 
-    <h3 style="margin-top: 30px;">Remember the Hierarchy:</h3>
-    <div class="visual-flow">
-        <div class="flow-item" style="background-color: #BBDEFB;">
-            <strong>BOC Code</strong><br>
-            <span style="font-size: 14px;">License Category</span><br>
-            <code>DM05</code>
+    <div class="example-box">
+        <h4>Example 2: Elderly Patient Needs Walker</h4>
+        
+        <table>
+            <tr>
+                <th>Code Type</th>
+                <th>Code</th>
+                <th>What It Means</th>
+                <th>Who Decides</th>
+            </tr>
+            <tr style="background-color: #E3F2FD;">
+                <td><strong>BOC Code</strong></td>
+                <td><span class="code-tag boc-tag">M05</span></td>
+                <td>Walkers</td>
+                <td>Your License</td>
+            </tr>
+            <tr style="background-color: #FFE0B2;">
+                <td><strong>HCPCS Code</strong></td>
+                <td><span class="code-tag hcpcs-tag">E0143</span></td>
+                <td>Walker, folding, wheeled, adjustable height</td>
+                <td>You Select</td>
+            </tr>
+            <tr style="background-color: #F3E5F5;">
+                <td><strong>ICD-10 Code</strong></td>
+                <td><span class="code-tag icd-tag">M25.561</span></td>
+                <td>Pain in right knee</td>
+                <td>Doctor Provides</td>
+            </tr>
+        </table>
+        
+        <div class="success-box">
+            <strong>✓ COMPLETE SET - Ready to Bill:</strong><br>
+            You have license (<span class="code-tag boc-tag">M05</span>) → Product code (<span class="code-tag hcpcs-tag">E0143</span>) → Medical reason (<span class="code-tag icd-tag">M25.561</span>) → Knee pain needs walker = logical → Claim APPROVED
         </div>
-        <div class="arrow">→</div>
-        <div class="flow-item" style="background-color: #C5CAE9;">
-            <strong>HCPCS Codes</strong><br>
-            <span style="font-size: 14px;">Product Identifiers</span><br>
-            <code style="font-size: 12px;">E0607, A4253, A4259</code>
+    </div>
+
+    <div class="example-box">
+        <h4>Example 3: Post-Surgery Patient Needs Commode</h4>
+        
+        <table>
+            <tr>
+                <th>Code Type</th>
+                <th>Code</th>
+                <th>What It Means</th>
+                <th>Who Decides</th>
+            </tr>
+            <tr style="background-color: #E3F2FD;">
+                <td><strong>BOC Code</strong></td>
+                <td><span class="code-tag boc-tag">DM02</span></td>
+                <td>Commodes/Urinals/Bedpans</td>
+                <td>Your License</td>
+            </tr>
+            <tr style="background-color: #FFE0B2;">
+                <td><strong>HCPCS Code</strong></td>
+                <td><span class="code-tag hcpcs-tag">E0165</span></td>
+                <td>Commode chair, mobile, with detachable arms</td>
+                <td>You Select</td>
+            </tr>
+            <tr style="background-color: #F3E5F5;">
+                <td><strong>ICD-10 Code</strong></td>
+                <td><span class="code-tag icd-tag">R26.81</span></td>
+                <td>Difficulty in walking</td>
+                <td>Doctor Provides</td>
+            </tr>
+        </table>
+        
+        <div class="success-box">
+            <strong>✓ COMPLETE SET - Ready to Bill:</strong><br>
+            You have license (<span class="code-tag boc-tag">DM02</span>) → Product code (<span class="code-tag hcpcs-tag">E0165</span>) → Medical reason (<span class="code-tag icd-tag">R26.81</span>) → Walking difficulty needs bedside commode = logical → Claim APPROVED
         </div>
-        <div class="arrow">→</div>
-        <div class="flow-item" style="background-color: #B2DFDB;">
-            <strong>ICD-10 Codes</strong><br>
-            <span style="font-size: 14px;">Medical Necessity</span><br>
-            <code>E11.9</code>
+    </div>
+
+    <div class="example-box">
+        <h4>Example 4: Compression Stockings for Venous Issues</h4>
+        
+        <table>
+            <tr>
+                <th>Code Type</th>
+                <th>Code</th>
+                <th>What It Means</th>
+                <th>Who Decides</th>
+            </tr>
+            <tr style="background-color: #E3F2FD;">
+                <td><strong>BOC Code</strong></td>
+                <td><span class="code-tag boc-tag">S01</span></td>
+                <td>Compression Stockings</td>
+                <td>Your License</td>
+            </tr>
+            <tr style="background-color: #FFE0B2;">
+                <td><strong>HCPCS Code</strong></td>
+                <td><span class="code-tag hcpcs-tag">A6530</span></td>
+                <td>Compression stocking, below knee, 18-30 mmHg</td>
+                <td>You Select</td>
+            </tr>
+            <tr style="background-color: #F3E5F5;">
+                <td><strong>ICD-10 Code</strong></td>
+                <td><span class="code-tag icd-tag">I87.2</span></td>
+                <td>Venous insufficiency (chronic)</td>
+                <td>Doctor Provides</td>
+            </tr>
+        </table>
+        
+        <div class="success-box">
+            <strong>✓ COMPLETE SET - Ready to Bill:</strong><br>
+            You have license (<span class="code-tag boc-tag">S01</span>) → Product code (<span class="code-tag hcpcs-tag">A6530</span>) → Medical reason (<span class="code-tag icd-tag">I87.2</span>) → Venous insufficiency requires compression = logical → Claim APPROVED
         </div>
-        <div class="arrow">→</div>
-        <div class="flow-item" style="background-color: #C8E6C9;">
-            <strong>Insurance Pays</strong><br>
-            <span style="font-size: 14px;">You Get Money</span><br>
-            ✓
+    </div>
+
+    <div class="example-box" style="border-color: #F44336; background-color: #FFEBEE;">
+        <h4>❌ WRONG Example: Codes Don't Match</h4>
+        
+        <table>
+            <tr>
+                <th>Code Type</th>
+                <th>Code</th>
+                <th>What It Means</th>
+            </tr>
+            <tr style="background-color: #E3F2FD;">
+                <td><strong>BOC Code</strong></td>
+                <td><span class="code-tag boc-tag">M05</span></td>
+                <td>Walkers ✓</td>
+            </tr>
+            <tr style="background-color: #FFE0B2;">
+                <td><strong>HCPCS Code</strong></td>
+                <td><span class="code-tag hcpcs-tag">E0143</span></td>
+                <td>Walker ✓</td>
+            </tr>
+            <tr style="background-color: #FFCDD2;">
+                <td><strong>ICD-10 Code</strong></td>
+                <td><span class="code-tag icd-tag">H40.9</span></td>
+                <td>Glaucoma (eye disease) ❌</td>
+            </tr>
+        </table>
+        
+        <div class="critical-box">
+            <strong>❌ CLAIM REJECTED:</strong><br>
+            Problem: Eye disease (glaucoma) does NOT logically require a walker. Insurance computer flags this as illogical → <strong>Claim DENIED</strong><br><br>
+            
+            <strong>Correct ICD-10 codes for walker would be:</strong><br>
+            • M25.561 (Knee pain)<br>
+            • R26.81 (Difficulty walking)<br>
+            • M16.0 (Hip arthritis)<br>
+            • I50.9 (Heart failure causing weakness)
         </div>
     </div>
 </div>
 
-<div class="section action" style="background-color: #E3F2FD;">
-    <h2>📞 Questions to Ask Yourself</h2>
+<div class="section">
+    <h2>🎯 Your Complete Code Reference: BOC → HCPCS → ICD-10</h2>
     
-    <h3>Before Ordering Inventory:</h3>
-    <ul>
-        <li>❓ Which BOC category is this product in?</li>
-        <li>❓ Am I licensed for that BOC category? (Check your 36 categories)</li>
-        <li>❓ What is the exact HCPCS code for this product?</li>
-        <li>❓ How much does Medicare pay for this HCPCS code?</li>
-        <li>❓ What is my wholesale cost?</li>
-        <li>❓ What is my profit margin? (Medicare payment minus wholesale cost)</li>
-        <li>❓ Which ICD-10 diagnosis codes commonly pair with this product?</li>
-    </ul>
+    <p><strong>Here are your most profitable combinations to start with:</strong></p>
 
-    <div class="tip-box">
-        <strong>Golden Rule:</strong><br>
-        Before buying ANY product, verify:<br>
-        1. It's in one of your 36 licensed BOC categories<br>
-        2. You know the exact HCPCS code<br>
-        3. Medicare pays more than your cost<br>
-        4. Doctors in your area prescribe it
+    <table>
+        <tr>
+            <th>BOC Category</th>
+            <th>HCPCS Codes</th>
+            <th>Common ICD-10 Codes</th>
+        </tr>
+        <tr>
+            <td><span class="code-tag boc-tag">DM05/06</span><br>Blood Glucose</td>
+            <td>
+                <span class="code-tag hcpcs-tag">E0607</span> Meter<br>
+                <span class="code-tag hcpcs-tag">A4253</span> Test strips<br>
+                <span class="code-tag hcpcs-tag">A4259</span> Lancets
+            </td>
+            <td>
+                <span class="code-tag icd-tag">E11.9</span> Type 2 diabetes<br>
+                <span class="code-tag icd-tag">E10.9</span> Type 1 diabetes<br>
+                <span class="code-tag icd-tag">E11.65</span> Type 2 with hyperglycemia
+            </td>
+        </tr>
+        <tr>
+            <td><span class="code-tag boc-tag">M01</span><br>Canes</td>
+            <td>
+                <span class="code-tag hcpcs-tag">E0100</span> Standard cane<br>
+                <span class="code-tag hcpcs-tag">E0105</span> Quad cane
+            </td>
+            <td>
+                <span class="code-tag icd-tag">M25.561</span> Knee pain<br>
+                <span class="code-tag icd-tag">R26.81</span> Difficulty walking<br>
+                <span class="code-tag icd-tag">M16.9</span> Hip osteoarthritis
+            </td>
+        </tr>
+        <tr>
+            <td><span class="code-tag boc-tag">M05</span><br>Walkers</td>
+            <td>
+                <span class="code-tag hcpcs-tag">E0130</span> Standard walker<br>
+                <span class="code-tag hcpcs-tag">E0143</span> Wheeled walker<br>
+                <span class="code-tag hcpcs-tag">E0147</span> Walker with seat
+            </td>
+            <td>
+                <span class="code-tag icd-tag">M25.561</span> Knee pain<br>
+                <span class="code-tag icd-tag">R26.81</span> Difficulty walking<br>
+                <span class="code-tag icd-tag">M16.0</span> Hip arthritis<br>
+                <span class="code-tag icd-tag">I50.9</span> Heart failure
+            </td>
+        </tr>
+        <tr>
+            <td><span class="code-tag boc-tag">DM02</span><br>Commodes</td>
+            <td>
+                <span class="code-tag hcpcs-tag">E0163</span> Commode, fixed arms<br>
+                <span class="code-tag hcpcs-tag">E0165</span> Commode, detach arms<br>
+                <span class="code-tag hcpcs-tag">E0168</span> Bariatric commode
+            </td>
+            <td>
+                <span class="code-tag icd-tag">R26.81</span> Difficulty walking<br>
+                <span class="code-tag icd-tag">M25.561</span> Knee pain<br>
+                <span class="code-tag icd-tag">Z48.89</span> Post-surgical recovery
+            </td>
+        </tr>
+        <tr>
+            <td><span class="code-tag boc-tag">M06</span><br>Wheelchairs</td>
+            <td>
+                <span class="code-tag hcpcs-tag">K0001</span> Standard wheelchair<br>
+                <span class="code-tag hcpcs-tag">E1130</span> Lightweight wheelchair
+            </td>
+            <td>
+                <span class="code-tag icd-tag">M79.673</span> Foot/ankle pain<br>
+                <span class="code-tag icd-tag">M16.0</span> Hip arthritis<br>
+                <span class="code-tag icd-tag">I50.9</span> Heart failure<br>
+                <span class="code-tag icd-tag">G82.50</span> Quadriplegia
+            </td>
+        </tr>
+        <tr>
+            <td><span class="code-tag boc-tag">S01</span><br>Compression Stockings</td>
+            <td>
+                <span class="code-tag hcpcs-tag">A6530</span> Below knee, 18-30mmHg<br>
+                <span class="code-tag hcpcs-tag">A6531</span> Below knee, 30-40mmHg
+            </td>
+            <td>
+                <span class="code-tag icd-tag">I87.2</span> Venous insufficiency<br>
+                <span class="code-tag icd-tag">I83.90</span> Varicose veins<br>
+                <span class="code-tag icd-tag">I89.0</span> Lymphedema
+            </td>
+        </tr>
+    </table>
+</div>
+
+<div class="section">
+    <h2>✅ Your Pre-Sale Checklist</h2>
+    
+    <div class="checklist">
+        <h3>Before Providing ANY Product to Patient:</h3>
+        <ol>
+            <li>
+                <strong>☐ BOC License Check</strong><br>
+                Question: Is this product within one of my 36 licensed BOC categories?<br>
+                Where to check: Your BOC license list (DM02, DM05, M01, M05, etc.)
+            </li>
+            
+            <li>
+                <strong>☐ HCPCS Code Identification</strong><br>
+                Question: What is the exact HCPCS code for this specific product?<br>
+                Where to find: HCPCS code book or CMS website
+            </li>
+            
+            <li>
+                <strong>☐ Reimbursement Verification</strong><br>
+                Question: How much will Medicare pay for this HCPCS code?<br>
+                Where to find: Medicare Fee Schedule for your state
+            </li>
+            
+            <li>
+                <strong>☐ Profit Calculation</strong><br>
+                Question: Is Medicare payment higher than my wholesale cost?<br>
+                Formula: Profit = (Medicare payment) - (Wholesale cost) - (Overhead)
+            </li>
+            
+            <li>
+                <strong>☐ Doctor's Prescription</strong><br>
+                Question: Do I have a valid prescription with ICD-10 code?<br>
+                Must include: Patient diagnosis, ICD-10 code, doctor signature, NPI number
+            </li>
+            
+            <li>
+                <strong>☐ Medical Logic Check</strong><br>
+                Question: Does the ICD-10 diagnosis logically require this HCPCS equipment?<br>
+                Test: Would a reasonable person agree this diagnosis needs this equipment?
+            </li>
+            
+            <li>
+                <strong>☐ Documentation Complete</strong><br>
+                Required documents:<br>
+                ✓ Doctor's prescription<br>
+                ✓ ICD-10 diagnosis code<br>
+                ✓ Medical necessity statement<br>
+                ✓ Patient insurance information<br>
+                ✓ Delivery receipt with signature
+            </li>
+        </ol>
+    </div>
+
+    <div class="critical-box">
+        <strong>⚠️ CRITICAL WARNING:</strong><br><br>
+        
+        <strong>If ANY of these checks fail, DO NOT provide the product:</strong><br>
+        • No BOC license = Illegal operation<br>
+        • Wrong HCPCS code = Claim rejection<br>
+        • No ICD-10 code = No medical necessity = No payment<br>
+        • Codes don't match logically = Claim denial<br>
+        • Incomplete documentation = No reimbursement<br><br>
+        
+        <strong>Result of skipping these checks: You lose money on the sale.</strong>
+    </div>
+</div>
+
+<div class="section" style="background-color: #E8F5E9;">
+    <h2 style="color: #2E7D32;">🎓 MASTER SUMMARY: The Three-Code System</h2>
+    
+    <table>
+        <tr>
+            <th>Code Type</th>
+            <th>BOC Code</th>
+            <th>HCPCS Code</th>
+            <th>ICD-10 Code</th>
+        </tr>
+        <tr>
+            <td><strong>What is it?</strong></td>
+            <td>License category</td>
+            <td>Product identifier</td>
+            <td>Medical diagnosis</td>
+        </tr>
+        <tr>
+            <td><strong>Purpose</strong></td>
+            <td>Authorizes you to sell product type</td>
+            <td>Tells insurance which product</td>
+            <td>Proves medical necessity</td>
+        </tr>
+        <tr>
+            <td><strong>Format</strong></td>
+            <td>2-4 letters + numbers<br>(DM05, M01)</td>
+            <td>1 letter + 4 numbers<br>(E0143, A4253)</td>
+            <td>3-7 characters with decimal<br>(E11.9, M25.561)</td>
+        </tr>
+        <tr>
+            <td><strong>Who controls</strong></td>
+            <td>Your accreditation (you have 36)</td>
+            <td>CMS (standardized nationally)</td>
+            <td>Doctor/Physician</td>
+        </tr>
+        <tr>
+            <td><strong>Who chooses</strong></td>
+            <td>Already chosen (your license)</td>
+            <td>You choose based on product</td>
+            <td>Doctor provides on prescription</td>
+        </tr>
+        <tr>
+            <td><strong>Where to find</strong></td>
+            <td>Your BOC license document</td>
+            <td>HCPCS code book / CMS website</td>
+            <td>Doctor's prescription</td>
+        </tr>
+        <tr>
+            <td><strong>Required for billing?</strong></td>
+            <td>Yes (must be licensed)</td>
+            <td>Yes (must be exact)</td>
+            <td>Yes (must match logically)</td>
+        </tr>
+        <tr>
+            <td><strong>What happens if missing?</strong></td>
+            <td>Illegal operation, penalties</td>
+            <td>Claim rejected immediately</td>
+            <td>No payment (no medical necessity)</td>
+        </tr>
+    </table>
+
+    <div style="background-color: white; padding: 20px; border-radius: 8px; margin-top: 20px; border: 3px solid #4CAF50;">
+        <h3 style="margin-top: 0; color: #2E7D32; text-align: center;">The Golden Rule for DME Success</h3>
+        <p style="text-align: center; font-size: 20px; margin: 20px 0;">
+            <span class="code-tag boc-tag" style="font-size: 16px;">BOC License</span> 
+            <strong style="font-size: 24px; color: #FF9800;">+</strong>
+            <span class="code-tag hcpcs-tag" style="font-size: 16px;">Correct HCPCS</span>
+            <strong style="font-size: 24px; color: #FF9800;">+</strong>
+            <span class="code-tag icd-tag" style="font-size: 16px;">Matching ICD-10</span>
+            <strong style="font-size: 24px; color: #4CAF50;">=</strong>
+            <span style="background-color: #4CAF50; color: white; padding: 10px 20px; border-radius: 8px; font-weight: bold; font-size: 18px;">💰 PAYMENT SUCCESS</span>
+        </p>
     </div>
 </div>
 
